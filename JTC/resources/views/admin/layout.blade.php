@@ -59,7 +59,8 @@
                                         <div class="card p-2 " style="width: 10rem; background-color: #3C8DBC">
                                             <div>
 
-                                                <a href="#" class="btn btn-success btn-sm">Profile</a>
+                                                <a href="{{route('profile')}}"
+                                                    class="btn btn-success btn-sm">Profile</a>
                                                 <a href="{{ route('adminlogout') }}" class="btn btn-danger btn-sm">Sign
                                                     out</a>
                                             </div>
@@ -131,7 +132,7 @@
                         <ul class="treeview-menu">
                             <li><a href="{{ route('addLeads') }}"><i class="fa fa-circle-o"></i> ADD</a>
                             </li>
-                            <li><a href="{{ route('activeFo') }}"><i class="fa fa-circle-o"></i> Import</a></li>
+                            <li><a href="{{ route('importleads') }}"><i class="fa fa-circle-o"></i> Import</a></li>
 
                         </ul>
                     </li>
@@ -155,7 +156,20 @@
                     </li>
 
                     <li class="header">Others</li>
-                    
+
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa-solid fa-rotate-right"></i>
+                            <span>Sub Admin</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="{{ route('roles') }}"><i class="fa fa-circle-o"></i> Role</a>
+                            </li>
+                            <li><a href="{{ route('activeFo') }}"><i class="fa fa-circle-o"></i> Sub Admin</a></li>
+
+                        </ul>
+                    </li>
                     <li class="treeview">
                         <a href="#">
                             <i class="fa-solid fa-rotate-right"></i>
@@ -168,7 +182,7 @@
                             <li><a href="{{ route('activeFo') }}"><i class="fa fa-circle-o"></i> Reject</a></li>
 
                         </ul>
-                    </li </ul>
+                    </li>
             </section>
             <!-- /.sidebar -->
         </aside>
@@ -222,34 +236,32 @@
     </div><!-- ./wrapper -->
 
     <!-- jQuery 2.1.3 -->
-    <script src="/plugins/jQuery/jQuery-2.1.3.min.js"></script>
+    <script src="{{ url('public/plugins/jQuery/jQuery-2.1.3.min.js') }}"></script>
     <!-- Bootstrap 3.3.2 JS -->
-    <script src="/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="{{ url('/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
     <!-- FastClick -->
-    <script src='/plugins/fastclick/fastclick.min.js'></script>
+    <script src="{{ url('/plugins/fastclick/fastclick.min.js') }}"></script>
     <!-- AdminLTE App -->
-    <script src="/dist/js/app.min.js" type="text/javascript"></script>
+    <script src="{{ url('/dist/js/app.min.js" type="text/javascript') }}"></script>
     <!-- Sparkline -->
-    <script src="/plugins/sparkline/jquery.sparkline.min.js" type="text/javascript"></script>
+    <script src="{{ url('/plugins/sparkline/jquery.sparkline.min.js') }}" type="text/javascript"></script>
     <!-- jvectormap -->
-    <script src="/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js" type="text/javascript"></script>
-    <script src="/plugins/jvectormap/jquery-jvectormap-world-mill-en.js" type="text/javascript"></script>
+    <script src="{{ url('/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js') }}" type="text/javascript"></script>
+    <script src="{{ url('/plugins/jvectormap/jquery-jvectormap-world-mill-en.js') }}" type="text/javascript"></script>
     <!-- daterangepicker -->
-    <script src="/plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
+    <script src="{{ url('/plugins/daterangepicker/daterangepicker.js" type="text/javascript') }}"></script>
     <!-- datepicker -->
-    <script src="/plugins/datepicker/bootstrap-datepicker.js" type="text/javascript"></script>
+    <script src="{{ url('/plugins/datepicker/bootstrap-datepicker.js" type="text/javascript') }}"></script>
     <!-- iCheck -->
-    <script src="/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
+    <script src="{{ url('/plugins/iCheck/icheck.min.js" type="text/javascript') }}"></script>
     <!-- SlimScroll 1.3.0 -->
-    <script src="/plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src="{{ url('/plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript') }}"></script>
     <!-- ChartJS 1.0.1 -->
-    <script src="/plugins/chartjs/Chart.min.js" type="text/javascript"></script>
+    <script src="{{ url('/plugins/chartjs/Chart.min.js" type="text/javascript') }}"></script>
 
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="/dist/js/pages/dashboard2.js" type="text/javascript"></script>
 
     <!-- AdminLTE for demo purposes -->
-    <script src="/dist/js/demo.js" type="text/javascript"></script>
+    <script src="{{ url('/plugins/dist/js/demo.js" type="text/javascript') }}"></script>
 
 
 </body>

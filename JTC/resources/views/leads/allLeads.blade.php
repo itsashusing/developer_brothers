@@ -57,13 +57,15 @@ Leads/all
 
                         <td>{{$lead->created_at}} </td>
                         <td>
-                            @if ($lead->created_at->addMinutes($lead->time)->diffInMinutes(now()) <= 0) <span
+
+                         
+                            @if (now() >= $lead->created_at->addMinutes($lead->time) ) <span
                                 class="badge bg-danger">Expired </span>
                                 @else
                                 {{$lead->created_at->addMinutes($lead->time)->diffInMinutes(now()) }}
+                                {{-- {{$lead->created_at->addMinutes($lead->time)->subMinutes(now()) }} --}}
                                 @endif
-                                {{$lead->created_at->addMinutes($lead->time)->diffInMinutes(now()) }}
-
+                          
                         </td>
                         <td> {{ $lead->time }}</td>
                         <td>

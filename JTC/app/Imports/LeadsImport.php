@@ -2,10 +2,11 @@
 
 namespace App\Imports;
 
+use App\Models\Fo;
 use App\Models\Leads;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
-use Maatwebsite\Excel\Concerns\StartRow;
+
 
 class LeadsImport implements ToModel, WithHeadingRow
 {
@@ -15,18 +16,45 @@ class LeadsImport implements ToModel, WithHeadingRow
      * @return \Illuminate\Database\Eloquent\Model|null
      */
 
-    public function startRow(): int
-    {
-        return 2;
-    }
     public function model(array $row)
     {
+        // $leads = [];
+
+        // $lead = [
+        //     'name' => $row['name'],
+        //     'email' => $row['email'],
+        //     'mobile' => $row['mobile'],
+        //     'address' => $row['address'],
+        //     'time' => $row['time'],
+        //     'fo_id' => $this->getFoId($row['fo_code'])
+        // ];
+        // $leads[] = $lead;
+        // dd($leads);
         return new Leads([
             'name' => $row['name'],
             'email' => $row['email'],
             'mobile' => $row['mobile'],
             'address' => $row['address'],
-            'time_in_minuts' => $row['time_in_minuts'],
+            'time' => $row['time'],
+            'fo_id' => $this->getFoId($row['fo_code'])
         ]);
+
+        // return 
+
     }
+
+    private function getFoId($code)
+    {
+
+        $fo = Fo::where('fo_code', $code)->first();
+        if ($fo) {
+            return $fo->id;
+        } else {
+            return null;
+        }
+
+    }
+
 }
+
+

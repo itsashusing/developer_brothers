@@ -19,15 +19,13 @@ class LeadsExport implements FromCollection, WithHeadings
     public function __construct($id = null, $fo_id = null)
     {
         $this->status = $id;
-        $this->fo_id = $fo_id;
+
     }
     public function collection()
     {
         if ($this->status) {
             $leads_query = Leads::where('status', $this->status)->get();
-            
-        } elseif ($this->fo_id) {
-            $leads_query = Leads::where('fo_id', $this->fo_id)->get();
+
         } else {
 
             $leads_query = Leads::all();

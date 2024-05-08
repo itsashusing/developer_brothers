@@ -18,7 +18,7 @@ return new class extends Migration {
             $table->string('address');
             $table->integer('time');
             $table->string('status')->default(1);
-            $table->unsignedBigInteger('fo_id')->default(null);
+            $table->unsignedBigInteger('fo_id')->nullable();
             $table->foreign('fo_id')->references('id')->on('fos')->onDelete('cascade');
             $table->timestamps();
         });

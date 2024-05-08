@@ -9,8 +9,16 @@ class Leads extends Model
 {
     use HasFactory;
 
-
-    public function FO(){
+    protected $fillable = [
+        'name',
+        'email',
+        'mobile',
+        'address',
+        'time',
+        'fo_id'
+    ];
+    public function FO()
+    {
         return $this->belongsTo(Fo::class, 'fo_id', 'id');
     }
 }

@@ -30,7 +30,7 @@ Edit a Lead
                             <div class="form-group">
                                 <label for="email">Email address</label>
                                 <input type="email" class="form-control" id="email" placeholder="Enter email"
-                                    name="email"  value="{{ $lead->email }}">
+                                    name="email" value="{{ $lead->email }}">
                                 @if ($errors->has('email'))
                                 <span class="text-danger">{{ $errors->first('email') }} </span>
                                 @endif
@@ -42,7 +42,7 @@ Edit a Lead
                             <div class="form-group">
                                 <label for="mobile">Mobile</label>
                                 <input type="number" class="form-control" id="mobile" placeholder="Enter mobile number"
-                                    name="mobile"  value="{{ $lead->mobile }}">
+                                    name="mobile" value="{{ $lead->mobile }}">
                                 @if ($errors->has('mobile'))
                                 <span class="text-danger">{{ $errors->first('mobile') }} </span>
                                 @endif
@@ -65,7 +65,7 @@ Edit a Lead
 
                                 <label for="fo">Select Fo</label>
                                 <select id="fo" name="fo" class="form-select " aria-label="Small select example">
-                                    
+
                                     <option selected>Select a fo</option>
                                     @foreach ($fos as $fo)
 

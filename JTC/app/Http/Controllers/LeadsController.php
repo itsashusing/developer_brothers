@@ -42,7 +42,7 @@ class LeadsController extends Controller
                 $lead->time = $request->time;
                 $lead->fo_id = $request->fo;
                 $lead->save();
-                return back()->with('success', "$request->name added successfully");
+                return redirect()->route('allLeads')->with('success', "$request->name added successfully");
             } else {
                 $fos = Fo::where('status', 1)->get();
                 return view('leads.addLeads', compact('fos'));
@@ -61,8 +61,8 @@ class LeadsController extends Controller
 
                 $validate = $request->validate([
                     'name' => 'required|max:255|string',
-                    'email' => 'required|email|max:255',
-                    'mobile' => 'required|size:10',
+                    'email' => 'required|email|max:255|unique:leads',
+                    'mobile' => 'required|unique:leads|size:10',
                     'address' => 'required|string',
                     'time' => 'required|numeric',
                     'fo' => 'required|exists:fos,id',

@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ExcelController;
 use App\Http\Controllers\FoController;
 use App\Http\Controllers\LeadsController;
+use App\Http\Controllers\SubAdminController;
 use Illuminate\Support\Facades\Route;
 
 Route::controller(AdminController::class)->group(function () {
@@ -11,6 +12,10 @@ Route::controller(AdminController::class)->group(function () {
     Route::get('/', 'dashboard')->name('dashboard');
     Route::post('/adminloginpost', 'adminloginpost')->name('adminloginpost');
     Route::get('/adminlogout', 'adminlogout')->name('adminlogout');
+    Route::any('/fogotpassword', 'fogotpassword')->name('fogotpassword');
+    Route::any('/profile', 'profile')->name('profile');
+    Route::any('/changepassword', 'changepassword')->name('changepassword');
+
 });
 Route::controller(FoController::class)->group(function () {
     Route::any('/allfo', 'allFo')->name('allFo');
@@ -38,7 +43,14 @@ Route::controller(LeadsController::class)->group(function () {
 Route::controller(ExcelController::class)->group(function () {
 
     Route::any('/importleads', 'importleads')->name('importleads');
-
-
     Route::any('/export/{status?}/{fo_id?}', 'export')->name('export');
+});
+Route::controller(SubAdminController::class)->group(function () {
+
+    Route::any('/roles', 'roles')->name('roles');
+    Route::any('/addRoles', 'addRoles')->name('addRoles');
+    Route::any('/editRole/{id}', 'editRole')->name('editRole');
+    Route::any('/permission/{id}', 'permission')->name('permission');
+    Route::any('/permissionchangestatus/{id}', 'permissionchangestatus')->name('permissionchangestatus');
+
 });
